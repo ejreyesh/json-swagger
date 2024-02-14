@@ -18,19 +18,11 @@
     "tags": [
         {
             "name": "Post",
-            "description": "PostController"
+            "description": "All endpoints for Post"
         },
         {
-            "name": "store",
-            "description": "Access to Petstore orders"
-        },
-        {
-            "name": "user",
-            "description": "Operations about user",
-            "externalDocs": {
-                "description": "Find out more about our store",
-                "url": "http://swagger.io"
-            }
+            "name": "Comments",
+            "description": "All endpoints for Comment"
         }
     ],
     "schemes": [
@@ -38,60 +30,38 @@
         "http"
     ],
     "paths": {
-        "/pet/{petId}/uploadImage": {
-            "post": {
+        "/post/{postId}": {
+            "get": {
                 "tags": [
-                    "pet"
+                    "Post"
                 ],
-                "summary": "uploads an image",
+                "summary": "Getting a resource",
                 "description": "",
-                "operationId": "uploadFile",
+                "operationId": "getPostById",
                 "consumes": [
-                    "multipart/form-data"
+                    "application/json"
                 ],
                 "produces": [
                     "application/json"
                 ],
                 "parameters": [
                     {
-                        "name": "petId",
+                        "name": "postId",
                         "in": "path",
-                        "description": "ID of pet to update",
+                        "description": "ID of post to find",
                         "required": true,
                         "type": "integer",
                         "format": "int64"
-                    },
-                    {
-                        "name": "additionalMetadata",
-                        "in": "formData",
-                        "description": "Additional data to pass to server",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "file",
-                        "in": "formData",
-                        "description": "file to upload",
-                        "required": false,
-                        "type": "file"
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
                         "schema": {
-                            "$ref": "#/definitions/ApiResponse"
+                            "$ref": "#/definitions/GetPostById"
                         }
                     }
-                },
-                "security": [
-                    {
-                        "petstore_auth": [
-                            "write:pets",
-                            "read:pets"
-                        ]
-                    }
-                ]
+                }
             }
         },
         "/pet": {
@@ -870,18 +840,22 @@
         }
     },
     "definitions": {
-        "ApiResponse": {
+        "GetPostById": {
             "type": "object",
             "properties": {
-                "code": {
+                "id": {
                     "type": "integer",
                     "format": "int32"
                 },
-                "type": {
+                "title": {
                     "type": "string"
                 },
-                "message": {
+                "body": {
                     "type": "string"
+                },
+                "userId": {
+                    "type": "integer",
+                    "format": "int32"
                 }
             }
         },
