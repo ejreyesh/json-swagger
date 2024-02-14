@@ -72,12 +72,14 @@
                     "application/json"
                 ],
                 "parameters": [],
-                "200": {
-                    "description": "successful operation",
-                    "schema": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/definitions/GetPostById"
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/GetPostById"
+                            }
                         }
                     }
                 }
