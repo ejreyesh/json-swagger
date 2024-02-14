@@ -83,9 +83,42 @@
                         }
                     }
                 }
+            },
+            "post": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Creating a resource",
+                "description": "Insert new Post",
+                "operationId": "postNewPost",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "newPost",
+                        "description": "Post to save",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/NewPost"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    }
+                }
             }
         },
-        "/pet/findByStatus": {
+        "/posts/findByStatus": {
             "get": {
                 "tags": [
                     "pet"
@@ -750,6 +783,21 @@
                     "type": "integer",
                     "format": "int32"
                 },
+                "title": {
+                    "type": "string"
+                },
+                "body": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "NewPost": {
+            "type": "object",
+            "properties": {
                 "title": {
                     "type": "string"
                 },
