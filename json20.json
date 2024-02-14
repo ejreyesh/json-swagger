@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "description": "This is a first example of documentation using the OpenApi 2.0 standard by implementing the swagger interface.",
-        "version": "1.0",
+        "version": "1.0.0",
         "title": "Swagger Serenity",
         "termsOfService": "http://swagger.io/terms/",
         "license": {
