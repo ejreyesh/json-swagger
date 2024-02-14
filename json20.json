@@ -4,10 +4,6 @@
         "description": "This is a first example of documentation using the OpenApi 2.0 standard by implementing the swagger interface.",
         "version": "1.0",
         "title": "Swagger Serenity",
-        "termsOfService": "http://swagger.io/terms/",
-        "contact": {
-            "email": "apiteam@swagger.io"
-        },
         "license": {
             "name": "Apache 2.0",
             "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
@@ -30,7 +26,7 @@
         "http"
     ],
     "paths": {
-        "/post/{postId}": {
+        "/posts/{postId}": {
             "get": {
                 "tags": [
                     "Post"
