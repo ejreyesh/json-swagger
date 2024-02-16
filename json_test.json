@@ -1,0 +1,190 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a first example of documentation using the OpenApi 2.0 standard by implementing the swagger interface.",
+    "version": "1.0",
+    "title": "Swagger Serenity",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "dev61879.service-now.com",
+  "basePath": "/",
+  "tags": [],
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/oauth_token.do": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Authentication endpoint",
+        "operationId": "4vzlt",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "AuthRequest",
+            "type": "integer",
+            "description": "Object to send credentials",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/OAuthTokenRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful authentication",
+            "schema": {
+              "$ref": "#/definitions/OAuthTokenResponse"
+            }
+          },
+          "401": {
+            "description": "Access denied",
+            "schema": {
+              "$ref": "#/definitions/OAuthToken401"
+            }
+          }
+        }
+      }
+    },
+    "/api/x_913932_serenitym/serenitymobile/record/get-attachments/x_sehs_insp_task/5e7c3b8c970406503f6abd3ef053af4c": {
+      "get": {
+        "tags": [
+          "Serenity mobile"
+        ],
+        "summary": "Getting a image element",
+        "operationId": "dfb4u",
+        "consumes": [
+          "application/x-www-form-urlencoded",
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "type": "string",
+            "description": "Access token",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful authentication",
+            "schema": {
+              "$ref": "#/definitions/WrapperFile"
+            }
+          },
+          "400": {
+            "description": "Access denied"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "OAuthTokenRequest": {
+      "properties": {
+        "grant_type": {
+          "type": "string"
+        },
+        "client_id": {
+          "type": "string"
+        },
+        "client_secret": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "OAuthToken401": {
+      "properties": {
+        "error_description": {
+          "type": "string"
+        },
+        "error": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "OAuthTokenResponse": {
+      "properties": {
+        "access_token": {
+          "type": "string"
+        },
+        "refresh_token": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "token_type": {
+          "type": "string"
+        },
+        "expires_in": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "type": "object"
+    },
+    "File": {
+      "properties": {
+        "fileTitle": {
+          "type": "string"
+        },
+        "fileType": {
+          "type": "string"
+        },
+        "fileAttachmentURL": {
+          "type": "string"
+        },
+        "fileContentStream": {
+          "type": "string"
+        },
+        "fileContentBase64": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "WrapperFile": {
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "attachments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/File"
+          }
+        }
+      },
+      "type": "object"
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}
